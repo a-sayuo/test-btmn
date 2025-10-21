@@ -80,3 +80,42 @@ textarea:focus {
   font-size: 0.75em;
   vertical-align: middle;
 }
+
+.success-message {
+  background-color: #e6f7ff; /* やさしい水色の背景 */
+  border: 2px solid #a3d8f4; /* スカイブルーの枠線 */
+  padding: 30px;
+  margin: 50px auto;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(163, 216, 244, 0.3); /* ふんわり影 */
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.success-message p {
+  font-size: 1.2em;
+  color: #3399cc; /* 文字もスカイブルー系に */
+  margin-bottom: 20px;
+}
+
+.success-message a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3399cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.success-message a:hover {
+  background-color: #2a80aa;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

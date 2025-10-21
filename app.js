@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
   res.render("form.ejs");
 });
 
-app.post("/form", (req, res) => { // ← ③ これが保存処理！
+app.post("/form", (req, res) => {
   console.log("フォームの内容:", req.body);
 
   const { name, email, prefecture, address, message } = req.body;
@@ -20,11 +20,12 @@ app.post("/form", (req, res) => { // ← ③ これが保存処理！
 
   connection.query(sql, values, (err, result) => {
     if (err) {
-      console.error("保存エラー:", err);
-      res.status(500).send("保存に失敗しました");
-    } else {
-      res.send("お問い合わせ内容を保存しました！");
+      console.error("保存エラー:", err); // ← エラーの詳細を表示
+      return res.status(500).send("保存に失敗しました"); // ← return を追加
     }
+
+    console.log("保存成功:", result); // ← 成功時のログも追加
+    return res.render("success.ejs", { message: "お問い合わせ内容を保存しました！" }); // ← return を追加
   });
 });
 
